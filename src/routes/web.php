@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,15 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function() {
-    return view('index');
-});
+Route::get('/', [ProductListController::class, 'viewProductList']);
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/set_profile', function() {
         return view('set_profile');
-    });
-    Route::get('/home', function() {
-        return view('home');
     });
 });
