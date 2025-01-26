@@ -11,7 +11,9 @@ class ListController extends Controller
     {
         $products = null;
 
-        if (!$request->page) {
+        $pageCheck = $request->page;
+
+        if (!$pageCheck) {
             // おすすめ
             $products = Product::all();
         } else {
@@ -21,6 +23,6 @@ class ListController extends Controller
             })->get();
         }
 
-        return view('list', compact('products'));
+        return view('list', compact('pageCheck', 'products'));
     }
 }

@@ -21,6 +21,10 @@
     text-decoration: none;
 }
 
+.list__tab--active {
+    color: #ff0000;
+}
+
 .list__cards {
     display: flex;
     flex-wrap: wrap;
@@ -36,15 +40,38 @@
     text-decoration: none;
 }
 
+.list__card--non-active {
+    pointer-events: none;
+}
+
 .card__image {
+    position: relative;
+    height: 250px;
+    width: 250px;
+}
+
+.card__image--image {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 250px;
-    width: 250px;
     color: black;
     font-size: 30px;
     background-color: #d9d9d9;
+    border-radius: 5px;
+}
+
+.card__image--sold {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    color: white;
+    font-size: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
 }
 

@@ -7,7 +7,12 @@
 @section('content')
 <div class="detail__content">
     <div class="detail__group">
-        <img src="{{Storage::url('product_images/' . $product->image)}}" alt="商品画像" class="detail__image">
+        <div class="detail__image">
+            <img src="{{Storage::url('product_images/' . $product->image)}}" alt="商品画像" class="detail__image--image">
+            @if ($product->buying_user_id)
+            <div class="detail__image--sold">Sold</div>
+            @endif
+        </div>
     </div>
     <div class="detail__group">
         <div class="detail__information">
