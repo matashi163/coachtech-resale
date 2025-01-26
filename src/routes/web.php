@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductListController;
+use App\Http\Controllers\ListController;
+use App\Http\Controllers\DetailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,8 @@ use App\Http\Controllers\ProductListController;
 |
 */
 
-Route::get('/', [ProductListController::class, 'viewProductList']);
+Route::get('/', [ListController::class, 'viewList']);
+Route::get('/item/{item_id}', [DetailController::class, 'viewDetail']);
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/set_profile', function() {

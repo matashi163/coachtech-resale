@@ -16,6 +16,13 @@ class Product extends Model
         'price',
         'description',
         'category_id',
-        'status_id',
+        'condision_id',
+        'selling_user_id',
+        'buying_user_id',
     ];
+
+    public function condision()
+    {
+        return $this->belongsTo(Condision::class);
+    }
 }
