@@ -16,7 +16,9 @@ class ListController extends Controller
             $products = Product::all();
         } else {
             // マイリスト
-
+            $products = Product::whereHas('bookmark', function ($query) {
+                $query->where('user_id', auth()->id());
+            })->get();
         }
 
         return view('list', compact('products'));

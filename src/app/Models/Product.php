@@ -25,4 +25,9 @@ class Product extends Model
     {
         return $this->belongsTo(Condision::class);
     }
+
+    public function bookmark()
+    {
+        return $this->hasMany(Bookmark::class);
+    }
 }

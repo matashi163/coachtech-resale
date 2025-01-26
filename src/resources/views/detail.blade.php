@@ -22,10 +22,16 @@
             </div>
             <div class="detail__counts">
                 <div class="detail__count">
-                    <a href="" class="detail__count--link">
+                    @if ($bookmarkExist)
+                    <a href="/bookmark/delete/{{$product->id}}" class="detail__count--link">
+                        <img src="{{Storage::url('icons/bookmark.png')}}" alt="お気に入り" class="detail__count--icon bookmark__exist">
+                    </a>
+                    @else
+                    <a href="/bookmark/create/{{$product->id}}" class="detail__count--link">
                         <img src="{{Storage::url('icons/bookmark.png')}}" alt="お気に入り" class="detail__count--icon">
                     </a>
-                    <p class="detail__count--bookmark">0</p>
+                    @endif
+                    <p class="detail__count--bookmark">{{$bookmarkCount}}</p>
                 </div>
                 <div class="detail__count">
                     <a href="#comment" class="detail__count--link">
@@ -44,8 +50,8 @@
                 <div class="detail__category">
                     <p class="detail__status--lavel">カテゴリー</p>
                     <div class="detail__category--content">
-                        @if($product->category)
-                        @foreach($product->category as $category)
+                        @if ($product->category)
+                        @foreach ($product->category as $category)
                         <p class="detail__category--item">{{$category}}</p>
                         @endforeach
                         @endif

@@ -22,4 +22,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/set_profile', function() {
         return view('set_profile');
     });
+    Route::group(['prefix' => '/bookmark'], function() {
+        Route::get('/create/{item_id}', [DetailController::class, 'createBookmark']);
+        Route::get('/delete/{item_id}', [DetailController::class, 'deleteBookmark']);
+    });
 });
