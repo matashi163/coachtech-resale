@@ -42,7 +42,7 @@
                     <a href="#comment" class="detail__count--link">
                         <img src="{{Storage::url('icons/comment.png')}}" alt="コメント" class="detail__count--icon">
                     </a>
-                    <p class="detail__count--comment">0</p>
+                    <p class="detail__count--comment">{{$commentCount}}</p>
                 </div>
             </div>
             <a href="/purchase/{{$product->id}}" class="detail__purchase">購入手続きへ</a>
@@ -69,16 +69,29 @@
                     <p class="detail__condision--content">{{$product->condision->condision}}</p>
                 </div>
             </div>
-            <div id="comment" class="detail__comment">
-                <p class="detail__comment--title">コメント(0)</p>
-                <div class="detail__comments">
-                    
+            <div id="comment" class="detail__comments">
+                <p class="detail__comments--title">コメント({{$commentCount}})</p>
+                @foreach($comments as $comment)
+                <div class="comments__comment">
+                    <div class="comment__user">
+                        <img src="" alt="image" class="comment__user--image">
+                        <p class="comment__user--name">名前</p>
+                    </div>
+                    <div class="comment__content">
+                        {!!nl2br(e($comment->comment))!!}
+                    </div>
                 </div>
-                <form action="" method="post" class="detail__comment-box">
+                @endforeach
+                <form action="/comment" method="post" class="detail__comment-box">
                     @csrf
                     <p class="detail__comment-box--title">商品へのコメント</p>
-                    <textarea class="detail__comment-box--input"></textarea>
-                    <button class="detail__comment-box--button">コメントを送信する</button>
+                    <textarea name="comment" value="{{old('comment')}}" class="detail__comment-box--input"></textarea>
+                    <p class="detail__comment-box--error">
+                        @error('comment')
+                        {{$errors->first('comment')}}
+                        @enderror
+                    </p>
+                    <button name="product_id" value="{{$product->id}}" class="detail__comment-box--button">コメントを送信する</button>
                 </form>
             </div>
         </div>

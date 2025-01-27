@@ -26,4 +26,5 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('/create/{item_id}', [DetailController::class, 'createBookmark']);
         Route::get('/delete/{item_id}', [DetailController::class, 'deleteBookmark']);
     });
+    Route::post('/comment', [DetailController::class, 'comment']);
 });

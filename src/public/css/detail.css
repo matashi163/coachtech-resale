@@ -187,23 +187,56 @@
     font-weight: bold;
 }
 
-.detail__comment {
+.detail__comments {
     margin-bottom: 50px;
 }
 
-.detail__comment--title {
+.detail__comments--title {
+    margin-bottom: 20px;
     color: #5f5f5f;
     font-size: 30px;
     font-weight: bold;
 }
 
-.detail__comments {
-    margin-bottom: 30px;
+.comments__comment {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.comment__user {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.comment__user--image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 60px;
+    background-color: #d9d9d9;
+    border-radius: 30px;
+}
+
+.comment__user--name {
+    margin: 0 20px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.comment__content {
+    padding: 15px 10px;
+    font-size: 20px;
+    background-color: #e5e5e5;
+    border-radius: 5px;
 }
 
 .detail__comment-box {
     display: flex;
     flex-direction: column;
+    margin-top: 40px;
 }
 
 .detail__comment-box--title {
@@ -213,7 +246,13 @@
 
 .detail__comment-box--input {
     height: 300px;
-    margin-bottom: 30px;
+}
+
+.detail__comment-box--error {
+    height: 30px;
+    margin-bottom: 10px;
+    color: red;
+    font-size: 20px;
 }
 
 .detail__comment-box--button {

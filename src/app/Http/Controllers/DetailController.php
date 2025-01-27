@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Bookmark;
+use App\Models\Comment;
+use App\Http\Requests\CommentRequest;
 
 class DetailController extends Controller
 {
@@ -16,7 +18,13 @@ class DetailController extends Controller
 
         $bookmarkCount = Bookmark::where('product_id', $item_id)->count();
 
-        return view('detail', compact('product', 'bookmarkExist', 'bookmarkCount'));
+        $comment = Comment::where('product_id', $item_id);
+        
+        $commentCount = $comment->count();
+
+        $comments = $comment->get();
+
+        return view('detail', compact('product', 'bookmarkExist', 'bookmarkCount', 'commentCount', 'comments'));
     }
 
     public function createBookmark($item_id)
@@ -30,13 +38,25 @@ class DetailController extends Controller
             Bookmark::create($bookmark);
         }
         
-        return redirect('/item/' . $item_id);
+        return back();
     }
 
     public function deleteBookmark($item_id)
     {
         Bookmark::where('user_id', auth()->id())->where('product_id', $item_id)->delete();
 
-        return redirect('/item/' . $item_id);
+        return back();
+    }
+
+    public function comment(CommentRequest $request)
+    {
+        $comment = [
+            'user_id' => auth()->id(),
+            'product_id' => $request->product_id,
+            'comment' => $request->comment,
+        ];
+        Comment::create($comment);
+        
+        return back();
     }
 }
