@@ -9,8 +9,6 @@ class ListController extends Controller
 {
     public function viewList(Request $request)
     {
-        $products = null;
-
         $pageCheck = $request->page;
 
         if (!$pageCheck) {
@@ -22,6 +20,15 @@ class ListController extends Controller
                 $query->where('user_id', auth()->id());
             })->get();
         }
+
+        return view('list', compact('pageCheck', 'products'));
+    }
+
+    public function search(Request $request)
+    {
+        $pageCheck = $request->page;
+
+        $products = Product::where('name', 'like', '%' . $request->search . '%')->get();
 
         return view('list', compact('pageCheck', 'products'));
     }

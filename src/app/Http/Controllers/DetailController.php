@@ -14,7 +14,7 @@ class DetailController extends Controller
     {
         $product = Product::with('condision')->find($item_id);
 
-        $bookmarkExist = Bookmark::where('user_id', auth()->id())->where('product_id', $item_id)->exists();
+        $bookmarked = Bookmark::where('user_id', auth()->id())->where('product_id', $item_id)->exists();
 
         $bookmarkCount = Bookmark::where('product_id', $item_id)->count();
 
@@ -24,7 +24,7 @@ class DetailController extends Controller
 
         $comments = $comment->get();
 
-        return view('detail', compact('product', 'bookmarkExist', 'bookmarkCount', 'commentCount', 'comments'));
+        return view('detail', compact('product', 'bookmarked', 'bookmarkCount', 'commentCount', 'comments'));
     }
 
     public function createBookmark($item_id)

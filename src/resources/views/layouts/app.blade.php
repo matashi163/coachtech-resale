@@ -7,7 +7,7 @@
 
 @section('header')
 <div class="header__content">
-    <form action="" class="header__search">
+    <form action="/search" method="post" class="header__search">
         @csrf
         <input type="text" name="search" placeholder="なにをお探しですか？" class="search__input">
     </form>

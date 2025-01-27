@@ -100,7 +100,7 @@
     margin: 0 30px;
 }
 
-.bookmark__exist {
+.bookmarked {
     filter: invert(100%) sepia(100%) saturate(1000%)  brightness(1);
 }
 

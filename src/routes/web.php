@@ -17,6 +17,7 @@ use App\Http\Controllers\DetailController;
 
 Route::get('/', [ListController::class, 'viewList']);
 Route::get('/item/{item_id}', [DetailController::class, 'viewDetail']);
+Route::post('/search', [ListController::class, 'search']);
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/set_profile', function() {

@@ -27,9 +27,9 @@
             </div>
             <div class="detail__counts">
                 <div class="detail__count">
-                    @if ($bookmarkExist)
+                    @if ($bookmarked)
                     <a href="/bookmark/delete/{{$product->id}}" class="detail__count--link">
-                        <img src="{{Storage::url('icons/bookmark.png')}}" alt="お気に入り" class="detail__count--icon bookmark__exist">
+                        <img src="{{Storage::url('icons/bookmark.png')}}" alt="お気に入り" class="detail__count--icon bookmarked">
                     </a>
                     @else
                     <a href="/bookmark/create/{{$product->id}}" class="detail__count--link">
