@@ -1,0 +1,161 @@
+.purchase__content {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding: 100px 30px;
+}
+
+.purchase__information {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 3;
+    margin: 0 50px;
+    margin-bottom: 100px;
+}
+
+.purchase__group {
+    border-bottom: 1px solid black;
+}
+
+.group__title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.purchase__product {
+    display: flex;
+    padding-bottom: 50px;
+}
+
+.product__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 200px;
+    margin-right: 50px;
+    font-size: 20px;
+    background-color: #d9d9d9;
+}
+
+.product__information {
+    display: flex;
+    flex-direction: column;
+}
+
+.product__name {
+    margin-bottom: 20px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.product__price {
+    display: flex;
+    align-items: flex-end;
+}
+
+.product__price--yen {
+    margin-right: 10px;
+    font-size: 30px;
+}
+
+.product__price--price {
+    font-size: 35px;
+}
+
+.purchase__payment-method {
+    padding: 30px 50px;
+}
+
+.payment-method__select {
+    margin: 30px 50px;
+    height: 30px;
+    width: 300px;
+}
+
+.purchase__adress {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 50px;
+}
+
+.adress__display {
+    margin: 30px 50px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.adress__change {
+    color: #0073cc;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.purchase__payment {
+    flex-grow: 2;
+    margin: 0 50px;
+}
+
+.payment__information {
+    margin-bottom: 50px;
+    border: 1px solid black;
+}
+
+.payment__price {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+    border-bottom: 1px solid black;
+}
+
+.payment__lavel {
+    width: 100px;
+    font-size: 20px;
+}
+
+.payment__price--content {
+    display: flex;
+    align-items: flex-end;
+    width: 120px;
+}
+
+.payment__price--yen {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.payment__price--price {
+    font-size: 25px;
+}
+
+.payment__method {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+}
+
+.payment__method--content {
+    width: 120px;
+    font-size: 20px;
+}
+
+.purchase__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #ff5555;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 1024px) {
+    .purchase__content {
+        flex-direction: column;
+    }
+}

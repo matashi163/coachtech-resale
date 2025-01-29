@@ -1,7 +1,8 @@
 .detail__content {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    width: 100%;
+    padding: 50px 100px;
 }
 
 .detail__group {
@@ -144,7 +145,7 @@
 
 .detail__category {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .detail__category--content {
@@ -269,3 +270,12 @@
     border-radius: 5px;
 }
 
+@media screen and (max-width: 1024px) {
+    .detail__content {
+        padding: 50px 30px;
+    }
+
+    .detail__group {
+        margin: 20px;
+    }
+}

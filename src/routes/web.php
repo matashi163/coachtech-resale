@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ListController;
 use App\Http\Controllers\DetailController;
+use App\Http\Controllers\PurchaseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +29,7 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('/delete/{item_id}', [DetailController::class, 'deleteBookmark']);
     });
     Route::post('/comment', [DetailController::class, 'comment']);
+    Route::group(['prefix' => '/purchase'], function() {
+        Route::get('/{item_id}', [PurchaseController::class, 'viewPurchase']);
+    });
 });
