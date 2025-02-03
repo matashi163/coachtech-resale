@@ -1,0 +1,51 @@
+.adress__content {
+    width: 50%;
+    margin-top: 50px;
+}
+
+.adress__title {
+    margin-bottom: 70px;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.form__content {
+    margin-bottom: 100px;
+}
+
+.form__group {
+    margin-bottom: 20px;
+}
+
+.form__lavel {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.form__input {
+    height: 40px;
+    width: 100%;
+    border: 1px solid #5f5f5f;
+    border-radius: 5px;
+}
+
+.form__error {
+    height: 30px;
+    color: red;
+    font-size: 20px;
+}
+
+.form__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    width: 100%;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #ff5555;
+    border-style: none;
+    border-radius: 5px;
+}

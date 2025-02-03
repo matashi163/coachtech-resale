@@ -29,11 +29,11 @@
             <div class="adress__content">
                 <p class="group__title">配送先</p>
                 <div class="adress__display">
-                    <p class="adress__zip-code">〒 XXX-YYYY</p>
-                    <p class="adress__text">ここには住所と建物が入ります</p>
+                    <p class="adress__zip-code">〒{{$zipCode ?? 'XXX-YYYY'}}</p>
+                    <p class="adress__text">{{$adress ?? 'ここには住所と建物が入ります'}}</p>
                 </div>
             </div>
-            <a href="/purchase/adress/:item_id" class="adress__change">変更する</a>
+            <a href="/purchase/adress/{{$product->id}}" class="adress__change">変更する</a>
         </div>
     </div>
     <div class="purchase__payment">
@@ -50,7 +50,7 @@
                 <p id="paymentMethodDisplay" class="payment__method--content"></p>
             </div>
         </div>
-        <a href="" class="purchase__button">購入する</a>
+        <a href="/purchase/?product_id={{$product->id}}&user_id={{auth()->id()}}" class="purchase__button">購入する</a>
     </div>
 </div>
 
