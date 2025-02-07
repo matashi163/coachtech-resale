@@ -69,11 +69,11 @@
                 @foreach($comments as $comment)
                 <div class="comments__comment">
                     <div class="comment__user">
-                        <img src="" alt="image" class="comment__user--image">
-                        <p class="comment__user--name">名前</p>
+                        <img src="{{Storage::url('user_icons/' . $comment['user_image'])}}" alt=" " class="comment__user--image">
+                        <p class="comment__user--name">{{$comment['user_name']}}</p>
                     </div>
                     <div class="comment__content">
-                        {!!nl2br(e($comment->comment))!!}
+                        {!!nl2br(e($comment['comment']))!!}
                     </div>
                 </div>
                 @endforeach

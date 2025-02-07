@@ -22,9 +22,12 @@ Route::get('/item/{item_id}', [DetailController::class, 'viewDetail']);
 Route::post('/search', [ListController::class, 'search']);
 
 Route::group(['middleware' => 'auth'], function() {
+    Route::get('/set_profile', [ProfileController::class, 'viewSetProfile']);
+    Route::post('/set_profile', [ProfileController::class, 'createProfile']);
     Route::group(['prefix' => '/mypage'], function () {
-        Route::get('/', [ProfileController::class, 'viewMyPage']);
+        Route::get('/', [ProfileController::class, 'viewMypage']);
         Route::get('/profile', [ProfileController::class, 'viewProfile']);
+        Route::post('/profile', [ProfileController::class, 'updateProfile']);
     });
     Route::group(['prefix' => '/bookmark'], function() {
         Route::get('/create/{item_id}', [DetailController::class, 'createBookmark']);

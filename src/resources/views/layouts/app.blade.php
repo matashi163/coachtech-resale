@@ -20,7 +20,7 @@
         @else
         <a href="/login" class="header__auth header__button">ログイン</a>
         @endif
-        <a href="" class="header__mypage header__button">マイページ</a>
+        <a href="/mypage" class="header__mypage header__button">マイページ</a>
         <a href="" class="header__listing header__button">出品</a>
     </div>
 </div>

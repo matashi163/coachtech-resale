@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Bookmark;
 use App\Models\Comment;
+use App\Models\Profile;
 use App\Http\Requests\CommentRequest;
 
 class DetailController extends Controller
@@ -18,11 +19,20 @@ class DetailController extends Controller
 
         $bookmarkCount = Bookmark::where('product_id', $item_id)->count();
 
-        $comment = Comment::where('product_id', $item_id);
+        // $comment = Comment::where('product_id', $item_id);
         
-        $commentCount = $comment->count();
+        $commentCount = Comment::where('product_id', $item_id)->count();
 
-        $comments = $comment->get();
+        // $comments = $comment->get();
+        $comments = [];
+        foreach (Comment::where('product_id', $item_id)->get() as $comment) {
+            $userProfile = Profile::where('user_id', $comment->user_id)->first();
+            $comments[] = [
+                'user_image' => $userProfile->image ? $userProfile->image : null,
+                'user_name' => $userProfile->name,
+                'comment' => $comment->comment,
+            ];
+        }
 
         return view('detail', compact('product', 'bookmarked', 'bookmarkCount', 'commentCount', 'comments'));
     }

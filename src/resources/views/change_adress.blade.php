@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="adress__content">
-    <p class="adress__title">住所の変更</p>
+    <h1 class="adress__title">住所の変更</h1>
     <form action="/purchase/change_adress" method="post" class="adress__form">
         @csrf
         <input type="hidden" name="item_id" value="{{$item_id}}">
