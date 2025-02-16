@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
+use App\Models\ProductCategory;
 use App\Models\Bookmark;
 use App\Models\Comment;
 use App\Models\Profile;
@@ -18,12 +20,11 @@ class DetailController extends Controller
         $bookmarked = Bookmark::where('user_id', auth()->id())->where('product_id', $item_id)->exists();
 
         $bookmarkCount = Bookmark::where('product_id', $item_id)->count();
-
-        // $comment = Comment::where('product_id', $item_id);
         
         $commentCount = Comment::where('product_id', $item_id)->count();
 
-        // $comments = $comment->get();
+        $categories = Product::find($item_id)->categories;
+
         $comments = [];
         foreach (Comment::where('product_id', $item_id)->get() as $comment) {
             $userProfile = Profile::where('user_id', $comment->user_id)->first();
@@ -34,7 +35,7 @@ class DetailController extends Controller
             ];
         }
 
-        return view('detail', compact('product', 'bookmarked', 'bookmarkCount', 'commentCount', 'comments'));
+        return view('detail', compact('product', 'bookmarked', 'bookmarkCount', 'commentCount', 'categories', 'comments'));
     }
 
     public function createBookmark($item_id)

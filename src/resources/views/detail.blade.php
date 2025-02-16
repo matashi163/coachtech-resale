@@ -43,20 +43,16 @@
             <a href="/purchase/{{$product->id}}" class="detail__purchase">購入手続きへ</a>
             <div class="detail__description">
                 <p class="detail__description--title">商品説明</p>
-                <p class="detail__description--content">{{$product->description}}</p>
+                <p class="detail__description--content">{!!nl2br(e($product->description))!!}</p>
             </div>
             <div class="detail__status">
                 <p class="detail__status--title">商品の情報</p>
                 <div class="detail__category">
                     <p class="detail__status--lavel">カテゴリー</p>
                     <div class="detail__category--content">
-                        @if ($product->category)
-                        @foreach ($product->category as $category)
-                        <p class="detail__category--item">{{$category}}</p>
+                        @foreach($categories as $category)
+                        <p class="detail__category--item">{{$category->category}}</p>
                         @endforeach
-                        @endif
-                        <p class="detail__category--item">腕時計</p>
-                        <p class="detail__category--item">メンズ</p>
                     </div>
                 </div>
                 <div class="detail__condision">

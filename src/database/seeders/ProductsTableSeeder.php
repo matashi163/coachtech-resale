@@ -14,7 +14,7 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        $users = [
+        $products = [
             [
                 'name' => '腕時計',
                 'image' => 'watch.jpg',
@@ -78,6 +78,6 @@ class ProductsTableSeeder extends Seeder
             ],
         ];
 
-        Product::insert($users);
+        Product::insert($products);
     }
 }

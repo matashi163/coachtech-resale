@@ -5,6 +5,7 @@ use App\Http\Controllers\ListController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SellController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,20 +25,27 @@ Route::post('/search', [ListController::class, 'search']);
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/set_profile', [ProfileController::class, 'viewSetProfile']);
     Route::post('/set_profile', [ProfileController::class, 'createProfile']);
+
     Route::group(['prefix' => '/mypage'], function () {
         Route::get('/', [ProfileController::class, 'viewMypage']);
         Route::get('/profile', [ProfileController::class, 'viewProfile']);
         Route::post('/profile', [ProfileController::class, 'updateProfile']);
     });
+
     Route::group(['prefix' => '/bookmark'], function() {
         Route::get('/create/{item_id}', [DetailController::class, 'createBookmark']);
         Route::get('/delete/{item_id}', [DetailController::class, 'deleteBookmark']);
     });
+
     Route::post('/comment', [DetailController::class, 'comment']);
+
     Route::group(['prefix' => '/purchase'], function() {
         Route::get('/{item_id}', [PurchaseController::class, 'viewPurchase']);
         Route::get('/adress/{item_id}', [PurchaseController::class, 'viewChangeAdress']);
         Route::post('/change_adress', [PurchaseController::class, 'changeAdress']);
         Route::get('/', [PurchaseController::class, 'purchase']);
     });
+
+    Route::get('/sell', [SellController::class, 'viewSell']);
+    Route::post('/sell', [SellController::class, 'sell']);
 });
