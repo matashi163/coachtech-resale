@@ -4,15 +4,25 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Profile;
+use App\Models\PurchasedProduct;
 use App\Http\Requests\AdressRequest;
 
 class PurchaseController extends Controller
 {
     public function viewPurchase($item_id)
     {
+        $profile = Profile::find(auth()->id());
+
         $product = Product::find($item_id);
 
-        return view('purchase', compact('product'));
+        $zipCode = $profile->zip_code;
+
+        $adress = $profile->adress;
+
+        $building = $profile->building;
+
+        return view('purchase', compact('product', 'zipCode', 'adress', 'building'));
     }
 
     public function viewChangeAdress($item_id)
@@ -24,16 +34,24 @@ class PurchaseController extends Controller
     {
         $product = Product::find($request->item_id);
 
-        $zipCode = preg_replace('/^(\d{3})(\d{4})$/', '$1-$2', $request->zip_code);
+        $zipCode = $request->zip_code;
 
-        $adress = $request->adress . ' ' . $request->building;
+        $adress = $request->adress;
+
+        $building = $request->building;
         
-        return view('purchase', compact('product', 'zipCode', 'adress'));
+        return view('purchase', compact('product', 'zipCode', 'adress', 'building'));
     }
 
     public function purchase(Request $request)
     {
-        Product::find($request->product_id)->update(['buying_user_id' => $request->user_id]);
+        PurchasedProduct::create([
+            'product_id' => $request->product_id,
+            'buying_user_id' => $request->user_id,
+            'zip_code' => $request->zip_code,
+            'adress' => $request->adress,
+            'building' => $request->building,
+        ]);
         
         return redirect('/');
     }

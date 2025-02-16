@@ -16,7 +16,7 @@
         <a href="/item/{{$product->id}}" class="list__card {{$product->buying_user_id !== null ? 'list__card--non-active' : ''}}">
             <div class="card__image">
                 <img src="{{Storage::url('product_images/' . $product->image)}}" alt="商品画像" class="card__image">
-                @if ($product->buying_user_id)
+                @if ($product->purchased)
                 <div class="card__image--sold">Sold</div>
                 @endif
             </div>

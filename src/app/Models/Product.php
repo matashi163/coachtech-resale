@@ -18,8 +18,12 @@ class Product extends Model
         'category_id',
         'condision_id',
         'selling_user_id',
-        'buying_user_id',
     ];
+
+    public function purchased()
+    {
+        return $this->hasOne(PurchasedProduct::class);
+    }
 
     public function categories()
     {
