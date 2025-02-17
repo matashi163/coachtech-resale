@@ -16,4 +16,9 @@ class PurchasedProduct extends Model
         'adress',
         'building',
     ];
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Product;
+use App\Models\PurchasedProduct;
 use App\Models\Profile;
 use App\Http\Requests\ProfileRequest;
 
@@ -56,7 +58,7 @@ class ProfileController extends Controller
             // 出品した商品
             $products = Product::where('selling_user_id', auth()->id())->get();
         } else if ($pageCheck === 'purchased') {
-            $products = Product::where('buying_user_id', auth()->id())->get();
+            $products = Product::whereIn('id', User::find(auth()->id())->purchasedProducts->pluck('product_id'))->get();
         }
         
         return view('mypage', compact('user', 'pageCheck', 'products'));

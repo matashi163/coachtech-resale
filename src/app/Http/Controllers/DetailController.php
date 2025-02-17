@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Product;
-use App\Models\Category;
-use App\Models\ProductCategory;
 use App\Models\Bookmark;
 use App\Models\Comment;
 use App\Models\Profile;
