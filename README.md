@@ -1,6 +1,49 @@
 # COACHTECHフリマ
+商品を出品することができ、ほかの人が出品した商品を閲覧、購入することができる
+お気に入り機能とコメント機能が付いている
 
-## 環境構築
+![alt](top_page.png)
+
+## URL
+- 開発環境：http://localhost/
+- phpMyAdmin:：http://localhost:8080/
+
+## テストユーザー
+| ユーザー名 | メールアドレス | パスワード | 
+| ---------- | -------------- | ---------- | 
+| 一郎       | ichiro@example | password   | 
+| 二郎       | jiro@example   | password   | 
+| 三郎       | saburo@example | password   | 
+| 四郎       | shiro@example  | password   | 
+| 五郎       | goro@example   | password   | 
+
+## 機能一覧
+- 会員登録
+- プロフィール登録
+- ログイン
+- 商品一覧画面の表示
+- 商品詳細画面の表示
+- 商品のお気に入り登録
+- 商品へのコメント
+- 商品の購入
+- マイページの表示
+- プロフィール編集
+- 商品の出品
+
+
+## 使用技術(実行環境)
+- PHP8.3.0
+- Laravel8.83.27
+- MySQL8.0.26
+
+## テーブル設計
+![alt](table1.png)
+![alt](table2.png)
+
+## ER図
+![alt](er.png)
+
+# 環境構築
 **Dockerビルド**
 1. `git clone git@github.com:matashi163/coachtech-resale.git`
 2. DockerDesktopアプリを立ち上げる
@@ -42,15 +85,3 @@ php artisan migrate
 ``` bash
 php artisan db:seed
 ```
-
-## 使用技術(実行環境)
-- PHP8.3.0
-- Laravel8.83.27
-- MySQL8.0.26
-
-## ER図
-![alt](erd.png)
-
-## URL
-- 開発環境：http://localhost/
-- phpMyAdmin:：http://localhost:8080/
