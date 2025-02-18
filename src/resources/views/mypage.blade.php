@@ -15,8 +15,8 @@
     </div>
     <div class="mypage__product">
         <div class="product__tabs">
-            <a href="?page=listed" class="product__tab {{$pageCheck === 'listed' ? 'product__tab--active' : ''}}">出品した商品</a>
-            <a href="?page=purchased" class="product__tab {{$pageCheck === 'purchased' ? 'product__tab--active' : ''}}">購入した商品</a>
+            <a href="?page=sell" class="product__tab {{$pageCheck === 'sell' ? 'product__tab--active' : ''}}">出品した商品</a>
+            <a href="?page=buy" class="product__tab {{$pageCheck === 'buy' ? 'product__tab--active' : ''}}">購入した商品</a>
         </div>
         <div class="product__cards">
             @if($products)

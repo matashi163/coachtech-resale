@@ -30,7 +30,6 @@ class ProfileRequest extends FormRequest
             ],
             'name' => [
                 'required',
-                'max:255',
             ],
             'zip_code' => [
                 'required',
@@ -38,11 +37,7 @@ class ProfileRequest extends FormRequest
             ],
             'adress' => [
                 'required',
-                'max:255',
             ],
-            'building' => [
-                'max:255',
-            ]
         ];
     }
 

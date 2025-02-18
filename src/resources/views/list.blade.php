@@ -8,7 +8,7 @@
 <div class="list__content">
     <div class="list__tabs">
         <a href="/" class="list__tab {{$pageCheck === null ? 'list__tab--active' : ''}}">おすすめ</a>
-        <a href="/?page=my_list" class="list__tab {{$pageCheck === null ? '' : 'list__tab--active'}}">マイリスト</a>
+        <a href="/?page=mylist" class="list__tab {{$pageCheck === null ? '' : 'list__tab--active'}}">マイリスト</a>
     </div>
     <div class="list__cards">
         @if($products)

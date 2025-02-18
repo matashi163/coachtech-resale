@@ -49,15 +49,15 @@ class ProfileController extends Controller
         ];
 
         if (!$request->page) {
-            $pageCheck = 'listed';
+            $pageCheck = 'sell';
         } else {
             $pageCheck = $request->page;
         }
 
-        if ($pageCheck === 'listed') {
+        if ($pageCheck === 'sell') {
             // 出品した商品
             $products = Product::where('selling_user_id', auth()->id())->get();
-        } else if ($pageCheck === 'purchased') {
+        } else if ($pageCheck === 'buy') {
             $products = Product::whereIn('id', User::find(auth()->id())->purchasedProducts->pluck('product_id'))->get();
         }
         

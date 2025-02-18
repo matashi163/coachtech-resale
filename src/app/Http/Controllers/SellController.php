@@ -31,6 +31,7 @@ class SellController extends Controller
             'price' => $request->price,
             'description' => $request->description,
             'condision_id' => $request->condision,
+            'selling_user_id' => auth()->id(),
         ]);
 
         foreach ($request->category as $category) {
