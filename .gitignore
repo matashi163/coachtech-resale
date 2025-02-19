@@ -1,5 +1,7 @@
 /docker/mysql/data/*
 !src/storage/app/public/icons/*
+/src/storage/app/public/product_images/*
+/src/storage/app/public/user_icons/*
 !src/storage/app/public/product_images/coffee_grinder.jpg
 !src/storage/app/public/product_images/HDD.jpg
 !src/storage/app/public/product_images/laptop.jpg
