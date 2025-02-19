@@ -1,0 +1,17 @@
+/docker/mysql/data/*
+!/storage/app/public/icons/*
+!/storage/app/public/product_images/coffee_grinder.jpg
+!/storage/app/public/product_images/HDD.jpg
+!/storage/app/public/product_images/laptop.jpg
+!/storage/app/public/product_images/leather_shoes.jpg
+!/storage/app/public/product_images/makeup_set.jpg
+!/storage/app/public/product_images/mic.jpg
+!/storage/app/public/product_images/onion.jpg
+!/storage/app/public/product_images/shoulder.jpg
+!/storage/app/public/product_images/tumbler.jpg
+!/storage/app/public/product_images/watch.jpg
+!/storage/app/public/user_icons/banana.png
+!/storage/app/public/user_icons/grapes.png
+!/storage/app/public/user_icons/kiwi.png
+!/storage/app/public/user_icons/melon.png
+!/storage/app/public/user_icons/muscat.png

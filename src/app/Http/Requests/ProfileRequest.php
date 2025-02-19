@@ -26,7 +26,7 @@ class ProfileRequest extends FormRequest
         return [
             'image' => [
                 'image',
-                'mimes:png,jpg'
+                'mimes:png,jpg',
             ],
             'name' => [
                 'required',

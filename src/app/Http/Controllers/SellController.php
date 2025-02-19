@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Condision;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Http\Requests\SellRequest;
 
 class SellController extends Controller
 {
@@ -19,7 +20,7 @@ class SellController extends Controller
         return view('sell', compact('categories', 'condisions'));
     }
 
-    public function sell(Request $request)
+    public function sell(SellRequest $request)
     {
         $image = $request->file('image')->getClientOriginalName();
         $request->file('image')->storeAs('product_images', $image, 'public');
