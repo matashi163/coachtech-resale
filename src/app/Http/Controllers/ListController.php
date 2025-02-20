@@ -11,25 +11,18 @@ class ListController extends Controller
     {
         $pageCheck = $request->page;
 
+        $search = $request->search;
+
         if (!$pageCheck) {
             // おすすめ
-            $products = Product::all();
+            $products = Product::where('name', 'like', '%' . $search . '%')->get();
         } else {
             // マイリスト
             $products = Product::whereHas('bookmark', function ($query) {
                 $query->where('user_id', auth()->id());
-            })->get();
+            })->where('name', 'like', '%' . $search . '%')->get();
         }
 
-        return view('list', compact('pageCheck', 'products'));
-    }
-
-    public function search(Request $request)
-    {
-        $pageCheck = $request->page;
-
-        $products = Product::where('name', 'like', '%' . $request->search . '%')->get();
-
-        return view('list', compact('pageCheck', 'products'));
+        return view('list', compact('pageCheck', 'search', 'products'));
     }
 }

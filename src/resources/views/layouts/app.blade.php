@@ -9,7 +9,8 @@
 <div class="header__content">
     <form action="/search" method="post" class="header__search">
         @csrf
-        <input type="text" name="search" placeholder="なにをお探しですか？" class="search__input">
+        <input type="text" name="search" value="{{$search ?? ''}}" placeholder="なにをお探しですか？" class="search__input">
+        <input type="hidden" name="page" value="{{$pageCheck ?? ''}}">
     </form>
     <div class="header__buttons">
         @if(auth()->check())

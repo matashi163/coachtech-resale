@@ -20,7 +20,7 @@ use App\Http\Controllers\SellController;
 
 Route::get('/', [ListController::class, 'viewList']);
 Route::get('/item/{item_id}', [DetailController::class, 'viewDetail']);
-Route::post('/search', [ListController::class, 'search']);
+Route::post('/search', [ListController::class, 'viewList']);
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/set_profile', [ProfileController::class, 'viewSetProfile']);
