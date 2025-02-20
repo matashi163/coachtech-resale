@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AdressRequest extends FormRequest
+class AddressRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,7 +28,7 @@ class AdressRequest extends FormRequest
                 'required',
                 'digits:7',
             ],
-            'adress' => [
+            'address' => [
                 'required',
             ],
         ];
@@ -39,7 +39,7 @@ class AdressRequest extends FormRequest
         return [
             'zip_code.required' => '郵便番号が入力されていません',
             'zip_code.digits' => '郵便番号は7桁の数字で入力してください',
-            'adress.required' => '住所が入力されていません',
+            'address.required' => '住所が入力されていません',
         ];
     }
 }

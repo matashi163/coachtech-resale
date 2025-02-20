@@ -73,19 +73,19 @@
     width: 300px;
 }
 
-.purchase__adress {
+.purchase__address {
     display: flex;
     justify-content: space-between;
     padding: 30px 50px;
 }
 
-.adress__display {
+.address__display {
     margin: 30px 50px;
     font-size: 20px;
     font-weight: bold;
 }
 
-.adress__change {
+.address__change {
     color: #0073cc;
     font-size: 20px;
     text-decoration: none;

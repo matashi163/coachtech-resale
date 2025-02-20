@@ -35,7 +35,7 @@ class ProfileRequest extends FormRequest
                 'required',
                 'digits:7',
             ],
-            'adress' => [
+            'address' => [
                 'required',
             ],
         ];
@@ -50,8 +50,8 @@ class ProfileRequest extends FormRequest
             'name.max' => '名前は255文字以内で入力してください',
             'zip_code.required' => '郵便番号を入力してください',
             'zip_code.digits' => '郵便番号は7桁の数字で入力してください',
-            'adress.required' => '住所を入力してください',
-            'adress.max' => '住所は255文字以内で入力してください',
+            'address.required' => '住所を入力してください',
+            'address.max' => '住所は255文字以内で入力してください',
             'building' => '建物は255文字以内で入力してください',
         ];
     }

@@ -32,7 +32,7 @@ class ProfileController extends Controller
             'image' => $image,
             'name' => $request->name,
             'zip_code' => $request->zip_code,
-            'adress' => $request->adress,
+            'address' => $request->address,
             'building' => $request->building,
         ];
         Profile::create($profile);
@@ -73,7 +73,7 @@ class ProfileController extends Controller
             'image' => $userProfile->image,
             'name' => $userProfile->name,
             'zip_code' => $userProfile->zip_code,
-            'adress' => $userProfile->adress,
+            'address' => $userProfile->address,
             'building' => $userProfile->building,
         ];
 
@@ -94,7 +94,7 @@ class ProfileController extends Controller
             'image' => $image,
             'name' => $request->name,
             'zip_code' => $request->zip_code,
-            'adress' => $request->adress,
+            'address' => $request->address,
             'building' => $request->building,
         ];
         Profile::where('user_id', auth()->id())->update($profile);

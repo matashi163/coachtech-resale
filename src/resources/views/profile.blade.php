@@ -39,10 +39,10 @@
         </div>
         <div class="profile__group">
             <p class="profile__label">住所</p>
-            <input type="text" name="adress" value="{{$profile['adress'] ?? old('adress')}}" class="profile__input">
+            <input type="text" name="address" value="{{$profile['address'] ?? old('address')}}" class="profile__input">
             <p class="profile__error">
-                @error('adress')
-                {{$errors->first('adress')}}
+                @error('address')
+                {{$errors->first('address')}}
                 @enderror
             </p>
         </div>

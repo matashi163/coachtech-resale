@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('app_css')
-<link rel="stylesheet" href="{{asset('css/change_adress.css')}}">
+<link rel="stylesheet" href="{{asset('css/change_address.css')}}">
 @endsection
 
 @section('content')
-<div class="adress__content">
-    <h1 class="adress__title">住所の変更</h1>
-    <form action="/purchase/change_adress" method="post" class="adress__form">
+<div class="address__content">
+    <h1 class="address__title">住所の変更</h1>
+    <form action="/purchase/change_address" method="post" class="address__form">
         @csrf
         <input type="hidden" name="item_id" value="{{$item_id}}">
         <div class="form__content">
@@ -22,10 +22,10 @@
             </div>
             <div class="form__group">
                 <p class="form__lavel">住所</p>
-                <input type="text" name="adress" class="form__input">
+                <input type="text" name="address" class="form__input">
                 <p class="form__error">
-                    @error('adress')
-                    {{$errors->first('adress')}}
+                    @error('address')
+                    {{$errors->first('address')}}
                     @enderror
                 </p>
             </div>

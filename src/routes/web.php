@@ -41,8 +41,8 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::group(['prefix' => '/purchase'], function() {
         Route::get('/{item_id}', [PurchaseController::class, 'viewPurchase']);
-        Route::get('/adress/{item_id}', [PurchaseController::class, 'viewChangeAdress']);
-        Route::post('/change_adress', [PurchaseController::class, 'changeAdress']);
+        Route::get('/address/{item_id}', [PurchaseController::class, 'viewChangeaddress']);
+        Route::post('/change_address', [PurchaseController::class, 'changeaddress']);
         Route::get('/', [PurchaseController::class, 'purchase']);
     });
 

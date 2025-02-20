@@ -25,15 +25,15 @@
                 <option value="カード払い">カード払い</option>
             </select>
         </div>
-        <div class="purchase__group purchase__adress">
-            <div class="adress__content">
+        <div class="purchase__group purchase__address">
+            <div class="address__content">
                 <p class="group__title">配送先</p>
-                <div class="adress__display">
-                    <p class="adress__zip-code">〒{{preg_replace('/^(\d{3})(\d{4})$/', '$1-$2', $zipCode)}}</p>
-                    <p class="adress__text">{{$adress}} {{$building}}</p>
+                <div class="address__display">
+                    <p class="address__zip-code">〒{{preg_replace('/^(\d{3})(\d{4})$/', '$1-$2', $zipCode)}}</p>
+                    <p class="address__text">{{$address}} {{$building}}</p>
                 </div>
             </div>
-            <a href="/purchase/adress/{{$product->id}}" class="adress__change">変更する</a>
+            <a href="/purchase/address/{{$product->id}}" class="address__change">変更する</a>
         </div>
     </div>
     <div class="purchase__payment">
@@ -50,7 +50,7 @@
                 <p id="paymentMethodDisplay" class="payment__method--content"></p>
             </div>
         </div>
-        <a href="/purchase/?product_id={{$product->id}}&user_id={{auth()->id()}}&zip_code={{$zipCode}}&adress={{$adress}}&building=" class="purchase__button">購入する</a>
+        <a href="/purchase/?product_id={{$product->id}}&user_id={{auth()->id()}}&zip_code={{$zipCode}}&address={{$address}}&building=" class="purchase__button">購入する</a>
     </div>
 </div>
 

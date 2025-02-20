@@ -14,7 +14,7 @@ class Profile extends Model
         'image',
         'name',
         'zip_code',
-        'adress',
+        'address',
         'building',
     ];
 }

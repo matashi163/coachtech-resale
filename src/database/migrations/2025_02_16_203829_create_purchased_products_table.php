@@ -18,7 +18,7 @@ class CreatePurchasedProductsTable extends Migration
             $table->foreignId('product_id')->constrained('products', 'id')->cascadeOnDelete();
             $table->foreignId('buying_user_id')->constrained('users', 'id')->cascadeOnDelete();
             $table->string('zip_code', 7);
-            $table->string('adress');
+            $table->string('address');
             $table->string('building')->nullable();
             $table->timestamps();
         });

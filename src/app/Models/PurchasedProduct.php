@@ -13,7 +13,7 @@ class PurchasedProduct extends Model
         'product_id',
         'buying_user_id',
         'zip_code',
-        'adress',
+        'address',
         'building',
     ];
 
