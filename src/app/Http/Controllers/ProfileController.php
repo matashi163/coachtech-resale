@@ -55,7 +55,6 @@ class ProfileController extends Controller
         }
 
         if ($pageCheck === 'sell') {
-            // 出品した商品
             $products = Product::where('selling_user_id', auth()->id())->get();
         } else if ($pageCheck === 'buy') {
             $products = Product::whereIn('id', User::find(auth()->id())->purchasedProducts->pluck('product_id'))->get();

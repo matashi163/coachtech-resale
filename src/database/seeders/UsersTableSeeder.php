@@ -20,22 +20,27 @@ class UsersTableSeeder extends Seeder
                 'name' => '一郎',
                 'email' => 'ichiro@example',
                 'password' => Hash::make('password'),
+                'first_login' => false,
             ],[
                 'name' => '二郎',
                 'email' => 'jiro@example',
                 'password' => Hash::make('password'),
+                'first_login' => false,
             ],[
                 'name' => '三郎',
                 'email' => 'saburo@example',
                 'password' => Hash::make('password'),
+                'first_login' => false,
             ],[
                 'name' => '四郎',
                 'email' => 'shiro@example',
                 'password' => Hash::make('password'),
+                'first_login' => false,
             ],[
                 'name' => '五郎',
                 'email' => 'goro@example',
                 'password' => Hash::make('password'),
+                'first_login' => false,
             ],
         ];
 

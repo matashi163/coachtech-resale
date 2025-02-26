@@ -12,7 +12,7 @@ class PurchaseController extends Controller
 {
     public function viewPurchase($item_id)
     {
-        $profile = Profile::find(auth()->id());
+        $profile = Profile::where('user_id', auth()->id())->first();
 
         $product = Product::find($item_id);
 
@@ -25,12 +25,18 @@ class PurchaseController extends Controller
         return view('purchase', compact('product', 'zipCode', 'address', 'building'));
     }
 
-    public function viewChangeaddress($item_id)
-    {        
-        return view('change_address', compact('item_id'));
+    public function viewChangeAddress(Request $request, $item_id)
+    {
+        $zipCode = $request->zip_code;
+
+        $address = $request->address;
+
+        $building = $request->building;
+        
+        return view('change_address', compact('zipCode', 'address', 'building', 'item_id'));
     }
 
-    public function changeaddress(addressRequest $request)
+    public function changeaddress(AddressRequest $request)
     {
         $product = Product::find($request->item_id);
 

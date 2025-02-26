@@ -33,7 +33,7 @@
                     <p class="address__text">{{$address}} {{$building}}</p>
                 </div>
             </div>
-            <a href="/purchase/address/{{$product->id}}" class="address__change">変更する</a>
+            <a href="/purchase/address/{{$product->id}}?zip_code={{$zipCode}}&address={{$address}}&building={{$building}}" class="address__change">変更する</a>
         </div>
     </div>
     <div class="purchase__payment">
@@ -50,7 +50,7 @@
                 <p id="paymentMethodDisplay" class="payment__method--content"></p>
             </div>
         </div>
-        <a href="/purchase/?product_id={{$product->id}}&user_id={{auth()->id()}}&zip_code={{$zipCode}}&address={{$address}}&building=" class="purchase__button">購入する</a>
+        <a href="/purchase?product_id={{$product->id}}&user_id={{auth()->id()}}&zip_code={{$zipCode}}&address={{$address}}&building={{$building}}" class="purchase__button">購入する</a>
     </div>
 </div>
 
