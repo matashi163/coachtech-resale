@@ -86,3 +86,8 @@ php artisan migrate
 ``` bash
 php artisan db:seed
 ```
+
+8. シンボリックリンク作成
+``` bash
+php artisan storage:link
+```
