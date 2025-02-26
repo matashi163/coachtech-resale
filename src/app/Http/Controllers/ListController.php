@@ -14,10 +14,8 @@ class ListController extends Controller
         $search = $request->search;
 
         if (!$pageCheck) {
-            // おすすめ
             $products = Product::where('name', 'like', '%' . $search . '%')->where('selling_user_id', '!=', auth()->id())->get();
         } else {
-            // マイリスト
             $products = Product::whereHas('bookmark', function ($query) {
                 $query->where('user_id', auth()->id());
             })->where('name', 'like', '%' . $search . '%')->where('selling_user_id', '!=', auth()->id())->get();

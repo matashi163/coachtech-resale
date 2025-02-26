@@ -15,7 +15,7 @@
         @foreach($products as $product)
         <a href="/item/{{$product->id}}" class="list__card {{$product->purchased !== null ? 'list__card--non-active' : ''}}">
             <div class="card__image">
-                <img src="{{Storage::url('product_images/' . $product->image)}}" alt="商品画像" id="{{$product->id}}" class="card__image">
+                <img src="{{Storage::url('product_images/' . $product->image)}}" alt="商品画像" id="{{$product->id}}" class="card__image--image">
                 @if ($product->purchased)
                 <label for="{{$product->id}}" class="card__image--sold">Sold</label>
                 @endif
