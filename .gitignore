@@ -1,4 +1,4 @@
-/docker/mysql/data/*
+/docker/mysql/data
 !src/storage/app/public/icons/*
 /src/storage/app/public/product_images/*
 /src/storage/app/public/user_icons/*
