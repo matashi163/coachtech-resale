@@ -39,4 +39,14 @@ class Product extends Model
     {
         return $this->hasMany(Bookmark::class);
     }
+
+    public function tradingProduct()
+    {
+        return $this->hasOneThrough(TradingProduct::class, PurchasedProduct::class, 'product_id', 'purchased_product_id');
+    }
+
+    public function sellingUser()
+    {
+        return $this->belongsTo(User::class, 'selling_user_id');
+    }
 }

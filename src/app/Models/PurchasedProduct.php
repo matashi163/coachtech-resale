@@ -21,4 +21,14 @@ class PurchasedProduct extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+    public function tradingProduct()
+    {
+        return $this->hasOne(TradingProduct::class);
+    }
+
+    public function buyingUser()
+    {
+        return $this->belongsTo(User::class, 'buying_user_id');
+    }
 }

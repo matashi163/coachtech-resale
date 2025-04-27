@@ -7,6 +7,7 @@ use App\Http\Controllers\DetailController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SellController;
+use App\Http\Controllers\TradingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,7 @@ Route::get('/item/{item_id}', [DetailController::class, 'viewDetail']);
 Route::post('/search', [ListController::class, 'viewList']);
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => 'auth'], function () {
     Route::get('/set_profile', [ProfileController::class, 'viewSetProfile']);
     Route::post('/set_profile', [ProfileController::class, 'createProfile']);
 
@@ -34,14 +35,14 @@ Route::group(['middleware' => 'auth'], function() {
         Route::post('/profile', [ProfileController::class, 'updateProfile']);
     });
 
-    Route::group(['prefix' => '/bookmark'], function() {
+    Route::group(['prefix' => '/bookmark'], function () {
         Route::get('/create/{item_id}', [DetailController::class, 'createBookmark']);
         Route::get('/delete/{item_id}', [DetailController::class, 'deleteBookmark']);
     });
 
     Route::post('/comment', [DetailController::class, 'comment']);
 
-    Route::group(['prefix' => '/purchase'], function() {
+    Route::group(['prefix' => '/purchase'], function () {
         Route::get('/{item_id}', [PurchaseController::class, 'viewPurchase']);
         Route::get('/address/{item_id}', [PurchaseController::class, 'viewChangeaddress']);
         Route::post('/change_address', [PurchaseController::class, 'changeAddress']);
@@ -50,4 +51,13 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::get('/sell', [SellController::class, 'viewSell']);
     Route::post('/sell', [SellController::class, 'sell']);
+
+    Route::group(['prefix' => '/trading'], function () {
+        Route::get('/{item_id}', [TradingController::class, 'viewTrading']);
+        Route::post('/chat/{item_id}', [TradingController::class, 'chat']);
+        Route::post('/chat/correct/{chat_id}', [TradingController::class, 'correct']);
+        Route::get('/chat/delete/{chat_id}', [TradingController::class, 'delete']);
+        Route::get('/completion/{item_id}', [TradingController::class, 'completion']);
+        Route::post('/rate/{item_id}', [TradingController::class, 'rate']);
+    });
 });
