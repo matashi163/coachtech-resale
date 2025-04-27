@@ -55,7 +55,7 @@ class ProfileController extends Controller
                 $count += 1;
             }
         }
-        $rateAverage = $count != 0 ? floor($rateAll / $count) : 0;
+        $rateAverage = $count != 0 ? round($rateAll / $count) : 0;
 
         $user = [
             'image' => $profile->value('image'),
