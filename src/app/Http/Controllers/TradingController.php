@@ -99,9 +99,9 @@ class TradingController extends Controller
         return back();
     }
 
-    public function correct(ChatCorrectRequest $request, $chat_id)
+    public function correct(ChatCorrectRequest $request)
     {
-        Chat::find($chat_id)->update([
+        Chat::find($request->id)->update([
             'text' => $request->text,
         ]);
 

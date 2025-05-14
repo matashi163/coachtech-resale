@@ -16,21 +16,24 @@
             @endforeach
         </div>
     </div>
+    <div class="other-list--block"></div>
     <div class="trading">
-        <div class="trading__header">
-            <div class="header__title">
-                <img src="{{Storage::url('user_icons/' . $productData['partner_icon'])}}" alt="相手" class="header__icon">
-                <p class="header__text">{{$productData['partner_name']}}さんとの取引画面</p>
+        <div class="trading__info">
+            <div class="trading__header">
+                <div class="header__title">
+                    <img src="{{Storage::url('user_icons/' . $productData['partner_icon'])}}" alt="相手" class="header__icon">
+                    <p class="header__text">{{$productData['partner_name']}}さんとの取引画面</p>
+                </div>
+                @if($productData['position'] == 'buying_user' && $productData['completion'] == false)
+                <a href="/trading/completion/{{$productData['product_id']}}" class="trading__button">取引を完了する</a>
+                @endif
             </div>
-            @if($productData['position'] == 'buying_user' && $productData['completion'] == false)
-            <a href="/trading/completion/{{$productData['product_id']}}" class="trading__button">取引を完了する</a>
-            @endif
-        </div>
-        <div class="trading__product">
-            <img src="{{Storage::url('product_images/' . $productData['product_image'])}}" alt="商品名" class="product__image">
-            <div class="product__detail">
-                <p class="product__name">{{$productData['product_name']}}</p>
-                <p class="product__price">¥{{number_format($productData['product_price'])}}</p>
+            <div class="trading__product">
+                <img src="{{Storage::url('product_images/' . $productData['product_image'])}}" alt="商品名" class="product__image">
+                <div class="product__detail">
+                    <p class="product__name">{{$productData['product_name']}}</p>
+                    <p class="product__price">¥{{number_format($productData['product_price'])}}</p>
+                </div>
             </div>
         </div>
         <div class="trading__chat">
@@ -45,14 +48,11 @@
                     @if($chat->image)
                     <img src="{{Storage::url('chat_images/' . $chat->image)}}" alt="画像" class="chat__image">
                     @endif
-                    <form action="/trading/chat/correct/{{$chat->id}}" method="post">
-                        @csrf
-                        <input name="text" value="{{$chat->text}}" class="chat__text">
-                        <div class="chat__buttons">
-                            <button class="chat__button">編集</button>
-                            <a href="/trading/chat/delete/{{$chat->id}}" class="chat__button">削除</a>
-                        </div>
-                    </form>
+                    <p class="chat__text">{{$chat->text}}</p>
+                    <div class="chat__buttons">
+                        <button data-id="{{$chat->id}}" data-text="{{$chat->text}}" class="chat__button chat__button--correct">編集</button>
+                        <a href="/trading/chat/delete/{{$chat->id}}" class="chat__button">削除</a>
+                    </div>
                 </div>
                 @elseif($chat->user->id == $productData['partner_id'])
                 <div class="chat__group chat__partner">
@@ -63,12 +63,12 @@
                     @if($chat->image)
                     <img src="{{Storage::url('chat_images/' . $chat->image)}}" alt="画像" class="chat__image">
                     @endif
-                    <input name="text" value="{{$chat->text}}" class="chat__text non-active" readonly>
+                    <p class="chat__text">{{$chat->text}}</p>
                 </div>
                 @endif
                 @endforeach
             </div>
-            <div>
+            <div class="chat__form">
                 <p class="form__error">
                     @if ($errors->any())
                     {{$errors->first()}}
@@ -116,9 +116,22 @@
             <button class="modal__button">送信する</button>
         </form>
     </div>
+    <form action="/trading/chat/correct" method="post" id="correct" class="chat__correct chat__correct--hidden">
+        @csrf
+        <a href="" class="chat__correct--cansel"></a>
+        <div class="chat__correct--content">
+            <input type="hidden" name="id" id="chatIdInput">
+            <input type="text" name="text" id="chatTextInput" class="chat__correct--input">
+            <button class="chat__correct--button">編集</button>
+        </div>
+    </form>
 </div>
 
 <script>
+    window.addEventListener('load', function() {
+        window.scrollTo(0, document.body.scrollHeight);
+    });
+
     const stars = document.querySelectorAll('.modal__star');
     const rateInput = document.getElementById('rate');
 
@@ -135,6 +148,17 @@
                     s.classList.remove('active');
                 }
             });
+        });
+    });
+
+    document.querySelectorAll('.chat__button--correct').forEach(function(button) {
+        button.addEventListener('click', function() {
+            const chatId = this.getAttribute('data-id');
+            const chatText = this.getAttribute('data-text');
+
+            document.getElementById('chatIdInput').value = chatId;
+            document.getElementById('chatTextInput').value = chatText;
+            document.getElementById('correct').classList.remove('chat__correct--hidden');
         });
     });
 </script>

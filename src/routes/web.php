@@ -54,8 +54,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['prefix' => '/trading'], function () {
         Route::get('/{item_id}', [TradingController::class, 'viewTrading']);
+        Route::post('/chat/correct', [TradingController::class, 'correct']);
         Route::post('/chat/{item_id}', [TradingController::class, 'chat']);
-        Route::post('/chat/correct/{chat_id}', [TradingController::class, 'correct']);
         Route::get('/chat/delete/{chat_id}', [TradingController::class, 'delete']);
         Route::get('/completion/{item_id}', [TradingController::class, 'completion']);
         Route::post('/rate/{item_id}', [TradingController::class, 'rate']);
